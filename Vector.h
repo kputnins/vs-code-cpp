@@ -10,10 +10,11 @@ class Vector {
  private:
   // Array of 6 integers to store the coordinates of the vector
   // [x1, y1, z1, x2, y2, z2]
-  int coordinates[6];
+  int* coordinates;
 
  public:
   Vector();
+  ~Vector();
 
   int getComponentX() const;
   int getComponentY() const;

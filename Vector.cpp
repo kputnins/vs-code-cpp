@@ -5,10 +5,16 @@
 #include <iostream>
 
 Vector::Vector() {
+  coordinates = new int[6];
+
   // Initialize coordinate array to zeros
   for (int i = 0; i < 6; ++i) {
     coordinates[i] = 0;
   }
+}
+
+Vector::~Vector() {
+  delete[] coordinates;
 }
 
 int Vector::getComponentX() const {
