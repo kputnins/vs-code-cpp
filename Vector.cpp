@@ -85,3 +85,27 @@ std::istream& operator>>(std::istream& input, Vector& vector) {
 
   return input;
 };
+
+bool Vector::operator>(const Vector& vector) const {
+  return getLength() > vector.getLength();
+}
+
+bool Vector::operator<(const Vector& vector) const {
+  return getLength() < vector.getLength();
+}
+
+bool Vector::operator>=(const Vector& vector) const {
+  return getLength() >= vector.getLength();
+}
+
+bool Vector::operator<=(const Vector& vector) const {
+  return getLength() <= vector.getLength();
+}
+
+bool Vector::operator==(const Vector& vector) const {
+  return getLength() == vector.getLength();
+}
+
+bool Vector::operator!=(const Vector& vector) const {
+  return getLength() != vector.getLength();
+}

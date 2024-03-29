@@ -13,4 +13,13 @@ int main() {
   Vector vectorTwo;
   cin >> vectorTwo;
   cout << vectorTwo;
+
+  cout << "Vector1 < Vector2: " << (vectorOne < vectorTwo) << endl;
+  cout << "Vector1 > Vector2: " << (vectorOne > vectorTwo) << endl;
+
+  cout << "Vector1 <= Vector2: " << (vectorOne <= vectorTwo) << endl;
+  cout << "Vector1 >= Vector2: " << (vectorOne >= vectorTwo) << endl;
+
+  cout << "Vector1 == Vector2: " << (vectorOne == vectorTwo) << endl;
+  cout << "Vector1 != Vector2: " << (vectorOne != vectorTwo) << endl;
 }

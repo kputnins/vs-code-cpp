@@ -20,6 +20,15 @@ class Vector {
   int getComponentZ() const;
   int getLength() const;
 
+  bool operator>(const Vector&) const;
+  bool operator<(const Vector&) const;
+
+  bool operator>=(const Vector&) const;
+  bool operator<=(const Vector&) const;
+
+  bool operator==(const Vector&) const;
+  bool operator!=(const Vector&) const;
+
  private:
   std::string getCoordinateName(int i) const;
 };
