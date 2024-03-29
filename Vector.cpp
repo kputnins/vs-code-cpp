@@ -9,8 +9,6 @@ Vector::Vector() {
   for (int i = 0; i < 6; ++i) {
     coordinates[i] = 0;
   }
-
-  std::cout << "Vector created" << std::endl;
 }
 
 int Vector::getComponentX() const {
@@ -25,18 +23,23 @@ int Vector::getComponentZ() const {
   return coordinates[5] - coordinates[2];
 }
 
-int Vector::getLength() const {
+float Vector::getLength() const {
   return sqrt(pow(getComponentX(), 2) + pow(getComponentY(), 2) +
               pow(getComponentZ(), 2));
 }
 
 std::ostream& operator<<(std::ostream& output, const Vector& vector) {
+  output << "Vector: {" << vector.getComponentX() << ", "
+         << vector.getComponentY() << ", " << vector.getComponentZ() << "}"
+         << std::endl;
+
   output << "Coordinates: {" << vector.coordinates[0] << ", "
          << vector.coordinates[1] << ", " << vector.coordinates[2] << "}, {"
          << vector.coordinates[3] << ", " << vector.coordinates[4] << ", "
          << vector.coordinates[5] << "}" << std::endl;
 
   output << "Length: " << vector.getLength() << std::endl;
+  output << std::endl;
 
   return output;
 }
@@ -83,6 +86,8 @@ std::istream& operator>>(std::istream& input, Vector& vector) {
     } while (!validInput);
   }
 
+  std::cout << std::endl;
+
   return input;
 };
 
@@ -108,4 +113,44 @@ bool Vector::operator==(const Vector& vector) const {
 
 bool Vector::operator!=(const Vector& vector) const {
   return getLength() != vector.getLength();
+}
+
+Vector Vector::operator+(const Vector& vector) const {
+  Vector result;
+
+  for (int i = 0; i < 6; ++i) {
+    result.coordinates[i] = coordinates[i] + vector.coordinates[i];
+  }
+
+  return result;
+}
+
+Vector Vector::operator-(const Vector& vector) const {
+  Vector result;
+
+  for (int i = 0; i < 6; ++i) {
+    result.coordinates[i] = coordinates[i] - vector.coordinates[i];
+  }
+
+  return result;
+}
+
+Vector Vector::operator*(const Vector& vector) const {
+  Vector result;
+
+  int resultComponentX = getComponentY() * vector.getComponentZ() -
+                         getComponentZ() * vector.getComponentY();
+  int resultComponentY = -(getComponentX() * vector.getComponentZ() -
+                           getComponentZ() * vector.getComponentX());
+  int resultComponentZ = getComponentX() * vector.getComponentY() -
+                         getComponentY() * vector.getComponentX();
+
+  result.coordinates[0] = 0;
+  result.coordinates[1] = 0;
+  result.coordinates[2] = 0;
+  result.coordinates[3] = resultComponentX;
+  result.coordinates[4] = resultComponentY;
+  result.coordinates[5] = resultComponentZ;
+
+  return result;
 }

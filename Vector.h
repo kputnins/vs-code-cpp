@@ -18,7 +18,7 @@ class Vector {
   int getComponentX() const;
   int getComponentY() const;
   int getComponentZ() const;
-  int getLength() const;
+  float getLength() const;
 
   bool operator>(const Vector&) const;
   bool operator<(const Vector&) const;
@@ -28,6 +28,11 @@ class Vector {
 
   bool operator==(const Vector&) const;
   bool operator!=(const Vector&) const;
+
+  Vector operator+(const Vector&) const;
+  Vector operator-(const Vector&) const;
+
+  Vector operator*(const Vector&) const;
 
  private:
   std::string getCoordinateName(int i) const;
