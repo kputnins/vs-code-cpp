@@ -37,4 +37,11 @@ int main() {
   cout << "Vector1 * Vector2" << endl;
   Vector vectorProduct = vectorOne * vectorTwo;
   cout << vectorProduct;
+
+  cout << "Vector1 = Vector2" << endl;
+  vectorOne = vectorTwo;
+  cout << vectorOne;
+  cout << vectorTwo;
+
+  return 0;
 }

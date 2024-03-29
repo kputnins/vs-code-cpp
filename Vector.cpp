@@ -160,3 +160,9 @@ Vector Vector::operator*(const Vector& vector) const {
 
   return result;
 }
+
+void Vector::operator=(const Vector& vector) {
+  for (int i = 0; i < 6; ++i) {
+    coordinates[i] = vector.coordinates[i];
+  }
+}

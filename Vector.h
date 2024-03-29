@@ -35,6 +35,8 @@ class Vector {
 
   Vector operator*(const Vector&) const;
 
+  void operator=(const Vector&);
+
  private:
   std::string getCoordinateName(int i) const;
 };
